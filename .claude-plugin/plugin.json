@@ -1,0 +1,9 @@
+{
+  "name": "roamer",
+  "version": "1.0.0",
+  "description": "Roamer workflow commands — orient, breadcrumb, feature, bug, spec-audit, spec-check — for the Roamer project registry, behavioral spec database, and engineering threads MCP server.",
+  "author": {
+    "name": "Colin Ayer",
+    "url": "https://github.com/mathismeadows"
+  }
+}
