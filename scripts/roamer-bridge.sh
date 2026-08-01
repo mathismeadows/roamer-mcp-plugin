@@ -31,9 +31,16 @@
 # (scheme-based, not hostname-based — --host above doesn't help), so a browser
 # whose default handler is Safari never gets a working loopback callback no
 # matter what the redirect URI looks like. Detected via Launch Services below;
-# routed to roamer-device-auth.mjs, which authenticates via the OAuth device-code
-# grant instead — no local listener, no redirect URI, nothing for HTTPS-Only
-# Mode to block.
+# routed to the published @mathismeadows/roamer-device-auth npm package via a
+# version-pinned npx, which authenticates via the OAuth device-code grant
+# instead — no local listener, no redirect URI, nothing for HTTPS-Only Mode to
+# block.
+#
+# AUTH-24: this used to be a locally-committed roamer-device-auth.mjs, carried
+# in this repo independently of roamer-mcp's own copy (two sources that could
+# silently drift). It's now published from roamer-mcp's
+# scripts/roamer-device-auth-package/ via OIDC trusted publishing (no token) —
+# this repo just invokes it, doesn't carry its source.
 #
 # Register with:
 #   claude mcp add --scope user roamer -- /path/to/roamer-mcp/scripts/roamer-bridge.sh
@@ -83,11 +90,7 @@ ROAMER_MCP_CLIENT_ID="${ROAMER_MCP_CLIENT_ID:-a55708ff-a990-4a06-afa8-d2fc86980b
 ROAMER_MCP_OAUTH_PORT="${ROAMER_MCP_OAUTH_PORT:-38271}"
 
 if [[ "$(default_http_browser)" == "com.apple.safari" ]]; then
-  SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-  if [[ ! -d "$SCRIPT_DIR/node_modules" ]]; then
-    npm install --prefix "$SCRIPT_DIR" --silent >&2
-  fi
-  exec node "$SCRIPT_DIR/roamer-device-auth.mjs"
+  exec npx -y @mathismeadows/roamer-device-auth@1.0.1
 fi
 
 exec npx -y mcp-remote@0.1.37 "$ROAMER_MCP_URL" "$ROAMER_MCP_OAUTH_PORT" \
