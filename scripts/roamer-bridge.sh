@@ -35,4 +35,4 @@
 # Requires Node (for npx). See README.md "Registering with the Claude Code CLI".
 set -euo pipefail
 
-exec npx -y @mathismeadows/roamer-device-auth@1.1.1
+exec npx -y @mathismeadows/roamer-device-auth@1.1.2
