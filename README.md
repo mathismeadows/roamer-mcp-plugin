@@ -29,7 +29,7 @@ This repo is public — install directly with the commands above. New accounts a
 - `.claude-plugin/plugin.json` — plugin manifest
 - `.claude-plugin/marketplace.json` — self-referential marketplace entry
 - `.mcp.json` — spawns `scripts/roamer-bridge.sh` via `${CLAUDE_PLUGIN_ROOT}`
-- `scripts/` — the same local stdio bridge (Entra OAuth via `mcp-remote`; Safari device-code fallback via the published `@mathismeadows/roamer-device-auth` npm package, invoked via `npx`) used by RoamerMcp's own dev setup
+- `scripts/` — the same local stdio bridge (a server-mediated device authorization flow through Cloudflare Access, AUTH-25, via the published `@mathismeadows/roamer-device-auth` npm package, invoked via `npx` — same mechanism for every OS and every default browser) used by RoamerMcp's own dev setup
 - `skills/` — the six workflow commands above
 
 This repo is distribution-only — it has no server code, no tests, and no relation to RoamerMcp's internal architecture beyond consuming its public MCP endpoint.
