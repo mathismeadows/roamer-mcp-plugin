@@ -1,5 +1,5 @@
 ---
-name: roamer-feature
+name: feature
 description: Seven-step gated feature workflow — spec first, plan, implement, test, cleanup, commit with approval at each step
 argument-hint: "[feature description]"
 allowed-tools: ["Read", "Write", "Edit", "Bash", "Glob", "Grep", "Agent", "AskUserQuestion", "mcp__roamer__get_registry", "mcp__roamer__get_project", "mcp__roamer__list_specs", "mcp__roamer__get_spec_area", "mcp__roamer__get_spec_item", "mcp__roamer__log_spec_item", "mcp__roamer__log_thread", "mcp__roamer__update_project"]
@@ -9,9 +9,10 @@ disable-model-invocation: true
 A new feature has been described above. Follow these steps exactly and do not proceed to the next step without explicit approval.
 
 STEP 1 — Read context
-Read resource roamer://brain/overview.md.
-Call get_registry for cross-project state and open blockers, and get_project for the affected project's session history.
-Call get_spec_area for the relevant spec areas.
+Read resource roamer://brain/overview.md and identify which product the affected project belongs to.
+Call get_registry(projectNames: <that product's project list>) for cross-project state and open blockers scoped to the affected product, not the whole ecosystem. If the project isn't part of any known product, pass just its own name.
+Call get_project for the affected project's session history.
+Call get_spec_area for the relevant spec areas (use list_specs first to find the right spec if needed).
 
 STEP 2 — Update spec first
 Identify which functional areas are affected.

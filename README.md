@@ -4,12 +4,12 @@ Distributable Claude Code plugin for [RoamerMcp](https://github.com/h6rbgk2xhr/r
 
 Installing this plugin gives you six slash commands backed by the same tools RoamerMcp exposes over MCP:
 
-- `/roamer-orient` — start-of-session briefing (project registry + open threads)
-- `/roamer-breadcrumb` — end-of-session checkpoint (registry + thread updates)
-- `/roamer-feature` — seven-step gated feature workflow
-- `/roamer-bug` — eight-step gated bug-fix workflow
-- `/roamer-spec-audit` — spec coverage audit
-- `/roamer-spec-check` — hygiene checklist
+- `/roamer:orient` — start-of-session briefing (project registry + open threads)
+- `/roamer:breadcrumb` — end-of-session checkpoint (registry + thread updates)
+- `/roamer:feature` — seven-step gated feature workflow
+- `/roamer:bug` — eight-step gated bug-fix workflow
+- `/roamer:spec-audit` — spec coverage audit
+- `/roamer:spec-check` — hygiene checklist
 
 ## Install
 

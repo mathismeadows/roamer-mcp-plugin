@@ -1,5 +1,5 @@
 ---
-name: roamer-orient
+name: orient
 description: Start-of-session briefing — read the project registry and open engineering threads, then recommend the most valuable next step. Optionally scope to one product or project (e.g. 'Peeps').
 argument-hint: "[optional: product or project name]"
 allowed-tools: ["mcp__roamer__get_registry", "mcp__roamer__get_threads", "mcp__roamer__get_project"]

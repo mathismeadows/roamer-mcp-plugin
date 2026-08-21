@@ -1,5 +1,5 @@
 ---
-name: roamer-bug
+name: bug
 description: Eight-step gated bug fix workflow — understand before concluding, propose fix, update spec, test, commit with approval at each step
 argument-hint: "[bug description]"
 allowed-tools: ["Read", "Write", "Edit", "Bash", "Glob", "Grep", "Agent", "AskUserQuestion", "mcp__roamer__get_registry", "mcp__roamer__get_project", "mcp__roamer__get_spec_area", "mcp__roamer__get_spec_item", "mcp__roamer__log_spec_item", "mcp__roamer__update_project", "mcp__roamer__resolve_blocker"]
@@ -9,9 +9,10 @@ disable-model-invocation: true
 A bug has been described above. Follow these steps exactly and do not proceed to the next step without explicit approval.
 
 STEP 1 — Read context
-Read resource roamer://brain/overview.md.
-Call get_registry for cross-project state and open blockers, and get_project for the affected project.
-Call get_spec_area for the relevant spec areas.
+Read resource roamer://brain/overview.md and identify which product the affected project belongs to.
+Call get_registry(projectNames: <that product's project list>) for cross-project state and open blockers scoped to the affected product, not the whole ecosystem. If the project isn't part of any known product, pass just its own name.
+Call get_project for the affected project.
+Call get_spec_area for the relevant spec areas (use list_specs first if needed).
 
 STEP 2 — Understand before concluding
 Read all code relevant to the reported bug.
@@ -54,11 +55,11 @@ Write a test that:
 
 Follow existing test structure and naming conventions.
 Add fixture data if needed.
-Follow the project's testing conventions.
+Mirror across iOS and macOS if both platforms affected.
+Add accessibility identifiers for any UI elements involved.
 
 STEP 7 — Record state
-Call update_project to record the fix and any related gaps this revealed.
-If it resolves a cross-project blocker, call resolve_blocker.
+Record the fix and any related gaps this revealed via update_project (close what is done; note new gaps with the relevant spec IDs). If it resolves a cross-project blocker, call resolve_blocker.
 
 STEP 8 — Commit
 One commit per repo touched.
