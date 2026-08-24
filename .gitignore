@@ -1,0 +1,4 @@
+# Claude Code worktree-isolation tooling bug: meant to write to
+# $(git rev-parse --git-common-dir)/info/exclude but uses the literal flag
+# string as a path instead, creating this directory in the repo root.
+--git-common-dir/
