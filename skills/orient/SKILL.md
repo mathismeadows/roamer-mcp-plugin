@@ -1,12 +1,12 @@
 ---
 name: orient
-description: Start-of-session briefing — read the project registry and open engineering threads, then recommend the most valuable next step. Optionally scope to one product or project (e.g. 'Peeps').
+description: Start-of-session briefing — read the project registry and open engineering threads, then recommend the most valuable next step. Optionally scope to one product or project.
 argument-hint: "[optional: product or project name]"
 allowed-tools: ["mcp__roamer__get_registry", "mcp__roamer__get_threads", "mcp__roamer__get_project"]
 disable-model-invocation: true
 ---
 
-If a product or project name was mentioned (e.g. "Peeps", "RoamerMcp"), use **scoped mode**. Otherwise use **ecosystem mode**.
+If a product or project name was mentioned, use **scoped mode**. Otherwise use **workspace mode**.
 
 ---
 
@@ -31,11 +31,11 @@ Do not start any work. Wait for me to confirm or redirect.
 
 ---
 
-**Ecosystem mode** (no scope specified):
+**Workspace mode** (no scope specified):
 
 Call get_registry and get_threads (open threads only).
 
-Give me a full briefing across ALL Roamer projects:
+Give me a full briefing across all registered projects:
 
 For each project:
 - What was verified working last session

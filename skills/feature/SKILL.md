@@ -10,7 +10,7 @@ A new feature has been described above. Follow these steps exactly and do not pr
 
 STEP 1 — Read context
 Read resource roamer://brain/overview.md and identify which product the affected project belongs to.
-Call get_registry(projectNames: <that product's project list>) for cross-project state and open blockers scoped to the affected product, not the whole ecosystem. If the project isn't part of any known product, pass just its own name.
+Call get_registry(projectNames: <that product's project list>) for cross-project state and open blockers scoped to the affected product, not the whole workspace. If the project isn't part of any known product, pass just its own name.
 Call get_project for the affected project's session history.
 Call get_spec_area for the relevant spec areas (use list_specs first to find the right spec if needed).
 
@@ -27,7 +27,7 @@ Produce a precise implementation plan:
 - Every new file needed
 - Test cases required per new spec item
 - Any cross-platform considerations
-- Any cross-repo impact (shared, foundation, promo)
+- Any cross-repo impact on other repos in the workspace, if any
 - Any engineering threads to open via log_thread
 Show me the plan. Wait for my approval before proceeding.
 

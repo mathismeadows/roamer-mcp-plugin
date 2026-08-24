@@ -10,7 +10,7 @@ A bug has been described above. Follow these steps exactly and do not proceed to
 
 STEP 1 — Read context
 Read resource roamer://brain/overview.md and identify which product the affected project belongs to.
-Call get_registry(projectNames: <that product's project list>) for cross-project state and open blockers scoped to the affected product, not the whole ecosystem. If the project isn't part of any known product, pass just its own name.
+Call get_registry(projectNames: <that product's project list>) for cross-project state and open blockers scoped to the affected product, not the whole workspace. If the project isn't part of any known product, pass just its own name.
 Call get_project for the affected project.
 Call get_spec_area for the relevant spec areas (use list_specs first if needed).
 
@@ -55,8 +55,8 @@ Write a test that:
 
 Follow existing test structure and naming conventions.
 Add fixture data if needed.
-Mirror across iOS and macOS if both platforms affected.
-Add accessibility identifiers for any UI elements involved.
+Mirror the fix across every affected platform.
+If UI elements are involved, add accessibility identifiers per the project's convention.
 
 STEP 7 — Record state
 Record the fix and any related gaps this revealed via update_project (close what is done; note new gaps with the relevant spec IDs). If it resolves a cross-project blocker, call resolve_blocker.
