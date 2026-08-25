@@ -2,7 +2,6 @@
 name: spec-check
 description: End-of-session hygiene check — verify unit tests, TODOs, and docs stay in sync with this session's changes
 allowed-tools: ["Read", "Glob", "Grep", "Bash"]
-disable-model-invocation: true
 ---
 
 Review changes made this session and check:

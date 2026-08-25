@@ -2,7 +2,6 @@
 name: spec-audit
 description: Audit spec coverage — compare spec items to test coverage and flag gaps
 allowed-tools: ["Read", "Glob", "Grep", "mcp__roamer__list_specs", "mcp__roamer__get_spec_area"]
-disable-model-invocation: true
 ---
 
 Read resource roamer://brain/overview.md to locate all spec and test files.
