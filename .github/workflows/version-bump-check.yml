@@ -1,0 +1,41 @@
+name: Version bump check
+
+# Skills content has twice merged without a bump to .claude-plugin/plugin.json's version
+# field (85da713, and PR #2 which needed a manual follow-up bump in bf7b727) — both caught
+# by hand. This catches it automatically: any PR touching skills/**/SKILL.md must also touch
+# plugin.json.
+
+on:
+  pull_request:
+    branches: [main]
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Skills changes must come with a plugin.json bump
+        run: |
+          BASE="${{ github.event.pull_request.base.sha }}"
+          HEAD="${{ github.event.pull_request.head.sha }}"
+          CHANGED=$(git diff --name-only "$BASE" "$HEAD")
+
+          if echo "$CHANGED" | grep -q '^skills/.*/SKILL\.md$'; then
+            if ! echo "$CHANGED" | grep -q '^\.claude-plugin/plugin\.json$'; then
+              echo "::error::Skills content changed but .claude-plugin/plugin.json wasn't touched. Bump the version field per this repo's convention (see 85da713, bf7b727)."
+              exit 1
+            fi
+
+            OLD_VERSION=$(git show "$BASE:.claude-plugin/plugin.json" | grep -o '"version": *"[^"]*"')
+            NEW_VERSION=$(git show "$HEAD:.claude-plugin/plugin.json" | grep -o '"version": *"[^"]*"')
+            if [ "$OLD_VERSION" = "$NEW_VERSION" ]; then
+              echo "::error::plugin.json was touched but its version field is unchanged ($NEW_VERSION). Bump it."
+              exit 1
+            fi
+            echo "OK: version bumped $OLD_VERSION -> $NEW_VERSION"
+          else
+            echo "No skills/**/SKILL.md changes in this PR — nothing to check."
+          fi
