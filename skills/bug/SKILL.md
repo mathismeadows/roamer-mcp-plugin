@@ -3,7 +3,6 @@ name: bug
 description: Eight-step gated bug fix workflow — understand before concluding, propose fix, update spec, test, commit with approval at each step
 argument-hint: "[bug description]"
 allowed-tools: ["Read", "Write", "Edit", "Bash", "Glob", "Grep", "Agent", "AskUserQuestion", "mcp__roamer__get_registry", "mcp__roamer__get_project", "mcp__roamer__get_spec_area", "mcp__roamer__get_spec_item", "mcp__roamer__log_spec_item", "mcp__roamer__update_project", "mcp__roamer__resolve_blocker"]
-disable-model-invocation: true
 ---
 
 A bug has been described above. Follow these steps exactly and do not proceed to the next step without explicit approval.

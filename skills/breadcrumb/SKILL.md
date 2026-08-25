@@ -2,7 +2,6 @@
 name: breadcrumb
 description: End-of-session checkpoint — detect merged branches, update spec-item status, and write full session narrative only for still-active work
 allowed-tools: ["mcp__roamer__update_project", "mcp__roamer__log_spec_item", "mcp__roamer__get_project", "mcp__roamer__log_thread"]
-disable-model-invocation: true
 ---
 
 Before writing anything, check git status and recent git log across all repos in this workspace to identify which projects were touched this session, and for each touched branch, check whether it has since merged to main/develop (or been deleted with no open PR).

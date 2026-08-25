@@ -3,7 +3,6 @@ name: feature
 description: Seven-step gated feature workflow — spec first, plan, implement, test, cleanup, commit with approval at each step
 argument-hint: "[feature description]"
 allowed-tools: ["Read", "Write", "Edit", "Bash", "Glob", "Grep", "Agent", "AskUserQuestion", "mcp__roamer__get_registry", "mcp__roamer__get_project", "mcp__roamer__list_specs", "mcp__roamer__get_spec_area", "mcp__roamer__get_spec_item", "mcp__roamer__log_spec_item", "mcp__roamer__log_thread", "mcp__roamer__update_project"]
-disable-model-invocation: true
 ---
 
 A new feature has been described above. Follow these steps exactly and do not proceed to the next step without explicit approval.

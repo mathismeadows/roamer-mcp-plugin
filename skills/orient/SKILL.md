@@ -3,7 +3,6 @@ name: orient
 description: Start-of-session briefing — read the project registry and open engineering threads, then recommend the top 3 most valuable next steps. Optionally scope to one product or project.
 argument-hint: "[optional: product or project name]"
 allowed-tools: ["mcp__roamer__get_registry", "mcp__roamer__get_threads", "mcp__roamer__get_project"]
-disable-model-invocation: true
 ---
 
 If a product or project name was mentioned, use **scoped mode**. Otherwise use **workspace mode**.
