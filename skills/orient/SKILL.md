@@ -77,3 +77,5 @@ Then end with:
 - The top-three next-step recommendation: the most valuable things to work on this session across all projects, decided using the value equation above
 
 Do not start any work. Wait for me to confirm or redirect.
+
+<!-- test: verifying version-bump-check.yml fires correctly, no real content change -->
