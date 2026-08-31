@@ -1,5 +1,7 @@
 # roamer-mcp-plugin
 
+[![Listed on mcpservers.org](https://mcpservers.org/badge.svg)](https://mcpservers.org/servers/mathismeadows/roamer-mcp-plugin)
+
 Distributable Claude Code plugin for RoamerMcp — the Roamer project registry, behavioral spec database, and engineering threads MCP server. Learn more at [roamermcp.mathismeadows.com](https://roamermcp.mathismeadows.com).
 
 Installing this plugin gives you six workflows backed by the same tools RoamerMcp exposes over MCP. Each is a slash command, but Claude can also invoke one on its own when the conversation calls for it — you don't have to type the command yourself:
