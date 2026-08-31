@@ -1,6 +1,6 @@
 # roamer-mcp-plugin
 
-Distributable Claude Code plugin for [RoamerMcp](https://github.com/h6rbgk2xhr/roamer-mcp) — the Roamer project registry, behavioral spec database, and engineering threads MCP server.
+Distributable Claude Code plugin for RoamerMcp — the Roamer project registry, behavioral spec database, and engineering threads MCP server. Learn more at [roamermcp.mathismeadows.com](https://roamermcp.mathismeadows.com).
 
 Installing this plugin gives you six workflows backed by the same tools RoamerMcp exposes over MCP. Each is a slash command, but Claude can also invoke one on its own when the conversation calls for it — you don't have to type the command yourself:
 
@@ -15,7 +15,7 @@ Installing this plugin gives you six workflows backed by the same tools RoamerMc
 
 ```
 /plugin marketplace add mathismeadows/roamer-mcp-plugin
-/plugin install roamer
+/plugin install roamer@roamer
 ```
 
 On first use, Claude Code will prompt you to authenticate against the hosted RoamerMcp endpoint (per-user Entra ID login via OAuth) — no manual token setup required.
