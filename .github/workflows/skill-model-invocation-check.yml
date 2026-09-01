@@ -1,10 +1,10 @@
 name: Skill model-invocation check
 
-# PRM-17: all six skills are meant to be model-invocable (not gated behind explicit
+# All six skills are meant to be model-invocable (not gated behind explicit
 # /roamer:<name> slash-command use), so a connected agent can start the right workflow
 # on its own initiative. Guards against disable-model-invocation: true being reintroduced
-# into skills/*/SKILL.md — e.g. by a future manual sync from RoamerMcp's WorkflowPrompts.cs
-# that assumes it belongs in the template.
+# into skills/*/SKILL.md — e.g. by a future manual sync from the source workflows these
+# Skills are kept in sync with, in case a template assumes it belongs there.
 
 on:
   pull_request:
@@ -21,7 +21,7 @@ jobs:
       - name: Skills must not disable model invocation
         run: |
           if grep -rn '^disable-model-invocation: *true' skills/; then
-            echo "::error::disable-model-invocation: true found in a skill file — see PRM-17 (skills must stay model-invocable, not gated behind explicit slash-command use)."
+            echo "::error::disable-model-invocation: true found in a skill file — skills must stay model-invocable, not gated behind explicit slash-command use."
             exit 1
           fi
           echo "OK: no skill disables model invocation."
