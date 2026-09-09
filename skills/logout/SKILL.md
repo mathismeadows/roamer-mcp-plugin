@@ -1,12 +1,14 @@
 ---
 name: logout
 description: Clear a Roamer MCP client's active cached identity (or every identity cached for it), so its next connection signs in fresh
-allowed-tools: ["Bash", "AskUserQuestion"]
+allowed-tools: ["Bash", "AskUserQuestion", "ReadMcpResourceTool"]
 ---
 
 Run `npx -y @mathismeadows/roamer-device-auth status` via Bash (no arguments) to see every client slug that has a cached identity on this machine.
 
-Resolve which client slug the user means the same way `login` does: **always confirm with the user before acting — never proceed on a resolved slug without them explicitly agreeing it's the one they mean, even if `status` lists only one.** A client that hasn't reconnected recently can be completely invisible to `status`'s listing, so "exactly one slug shown" does not mean no other real session exists — this exact gap once caused a real mistake: logging out a completely different, unrelated session that simply wasn't visible in the list. Show the user the full `status` output and ask which app they're talking to you from right now, rather than guessing — and do not infer it from environment variables or file timestamps, since a more recently active concurrent session on the same machine would make that guess wrong. If `status` shows nothing cached for any slug, tell the user there's nothing to log out of and stop.
+Resolve which client slug the user means: first try reading the resource `roamer://whoami` (ReadMcpResourceTool) from whichever Roamer MCP server connection this session already has — typically the installed plugin's own connection. If it returns a real clientSlug, that's ground truth for this exact session — use it directly, no guessing needed.
+
+If that read fails ("resource not found" — this session's own bridge process hasn't been restarted onto a version that supports it yet, or this session isn't on the local stdio bridge at all, e.g. the claude.ai-brokered connector, which has no client-slug concept), fall back to the manual procedure below, the same way `login` does: **always confirm with the user before acting — never proceed on a resolved slug without them explicitly agreeing it's the one they mean, even if `status` lists only one.** A client that hasn't reconnected recently can be completely invisible to `status`'s listing, so "exactly one slug shown" does not mean no other real session exists — this exact gap once caused a real mistake: logging out a completely different, unrelated session that simply wasn't visible in the list. Show the user the full `status` output and ask which app they're talking to you from right now, rather than guessing — and do not infer it from environment variables or file timestamps, since a more recently active concurrent session on the same machine would make that guess wrong. If `status` shows nothing cached for any slug, tell the user there's nothing to log out of and stop.
 
 Ask whether they want to clear just the active identity for that slug, or every identity ever cached for it — default to just the active one unless they specifically ask to clear all of them.
 
