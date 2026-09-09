@@ -1,0 +1,18 @@
+---
+name: login
+description: Switch which Roamer MCP identity this client is signed in as — runs a fresh interactive sign-in without disturbing any other cached identity
+allowed-tools: ["Bash", "AskUserQuestion"]
+---
+
+Run `npx -y @mathismeadows/roamer-device-auth status` via Bash (no arguments) to see every client slug that already has a cached identity on this machine.
+
+Resolving which client slug this session is:
+- If the output lists exactly one client slug, use it — there's nothing ambiguous to resolve.
+- If it lists more than one, or none at all, ask the user which app they're talking to you from right now (Claude Code CLI, Cursor, VS Code, Claude Desktop, etc.) rather than guessing. Do not infer this from environment variables or file timestamps — neither reliably identifies which of several concurrently-running sessions is this one; a file's recency can point at a completely different, more recently active session on the same machine. If none of the listed slugs obviously match what the user describes, ask them to just say the slug shown in the status output that they believe is theirs.
+- If `status` reports nothing cached anywhere yet, this is a genuinely first-ever sign-in — ask what to call this client (e.g. "claude-code") only if you need a value to pass; otherwise the underlying `login` command still requires an explicit `--client <slug>`, so a value must be chosen before proceeding.
+
+Once you have the client slug, run `npx -y @mathismeadows/roamer-device-auth login --client <slug>` via Bash. This performs a real interactive sign-in — tell the user before running it to expect a browser tab/window to open (or, on Safari-default Macs, a native macOS dialog with a short code and URL), and that they need to actually complete the sign-in there themselves; you cannot do that step on their behalf. Wait for the command to finish rather than treating it as fire-and-forget.
+
+Report the command's own output back to the user plainly once it finishes (it states who ended up signed in, e.g. "Signed in as person@example.com — now the active identity for claude-code"). If it errors, show the actual error text rather than a generic "it failed."
+
+Finally, remind the user: an already-running session for that same client will not pick up the new identity until it's actually restarted — reconnecting alone is not enough (an already-spawned bridge process never hot-swaps).
