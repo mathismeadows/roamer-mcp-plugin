@@ -1,8 +1,10 @@
 ---
 name: status
 description: List which Roamer MCP identities are cached, and which is active, for every client on this machine (or one specific client)
-allowed-tools: ["Bash", "ReadMcpResourceTool"]
+allowed-tools: ["Bash", "ReadMcpResourceTool", "mcp__roamer__whoami"]
 ---
+
+If this session is on the claude.ai-brokered HTTP connector instead of the local stdio bridge: there's no cached-identity list to show here. Call the `whoami` tool directly (a normal tool call, distinct from the `roamer://whoami` resource mentioned below) — it reports which identity this exact connection is currently authorized as, resolved fresh from the request, which is the closest equivalent this transport has to a status check.
 
 Run `npx -y @mathismeadows/roamer-device-auth status` via Bash (no arguments) to list every client slug that has any cached identity, and which identity is active for each.
 

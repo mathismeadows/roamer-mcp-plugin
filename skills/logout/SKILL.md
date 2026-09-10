@@ -1,8 +1,10 @@
 ---
 name: logout
 description: Clear a Roamer MCP client's active cached identity (or every identity cached for it), so its next connection signs in fresh
-allowed-tools: ["Bash", "AskUserQuestion", "ReadMcpResourceTool"]
+allowed-tools: ["Bash", "AskUserQuestion", "ReadMcpResourceTool", "mcp__roamer__whoami"]
 ---
+
+If this session is on the claude.ai-brokered HTTP connector instead of the local stdio bridge: there's no separate logout action to run here. Disconnecting and reconnecting the connector itself (via your client's Connector or MCP server settings panel) forces a fresh sign-in, and may show a chooser if more than one account is currently signed in in your browser. Call the `whoami` tool (a normal tool call, distinct from the `roamer://whoami` resource mentioned below) before disconnecting to see which identity is currently active, and again after reconnecting to confirm the switch actually took.
 
 Run `npx -y @mathismeadows/roamer-device-auth status` via Bash (no arguments) to see every client slug that has a cached identity on this machine.
 
