@@ -1,7 +1,8 @@
 {
   "mcpServers": {
     "roamer": {
-      "command": "${CLAUDE_PLUGIN_ROOT}/scripts/roamer-bridge.sh"
+      "command": "npx",
+      "args": ["-y", "@mathismeadows/roamer-device-auth"]
     }
   }
 }

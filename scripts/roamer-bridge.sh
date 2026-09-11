@@ -45,6 +45,7 @@
 #   claude mcp add --scope user roamer -- /path/to/roamer-mcp-plugin/scripts/roamer-bridge.sh
 #
 # Requires Node (for npx). See README.md "Registering with the Claude Code CLI".
+# Not used by the bundled .mcp.json (which invokes npx directly for host-agnostic resolution) — kept for manual CLI registration only.
 set -euo pipefail
 
 exec npx -y @mathismeadows/roamer-device-auth
