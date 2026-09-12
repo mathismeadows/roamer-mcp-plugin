@@ -7,7 +7,7 @@
   "plugins": [
     {
       "name": "roamer",
-      "description": "Roamer workflow commands — orient, breadcrumb, feature, bug, spec-audit, spec-check, login, logout, status — for the Roamer project registry, behavioral spec database, and engineering threads MCP server.",
+      "description": "Roamer workflow commands — orient, breadcrumb, feature, bug, spec-audit, spec-check, login, logout, status, thread-scrub — for the Roamer project registry, behavioral spec database, and engineering threads MCP server.",
       "author": {
         "name": "Colin Ayer",
         "url": "https://github.com/mathismeadows"
