@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "roamer": {
+      "command": "npx",
+      "args": ["-y", "@mathismeadows/roamer-device-auth"]
+    }
+  }
+}
