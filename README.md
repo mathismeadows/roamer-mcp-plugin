@@ -1,0 +1,40 @@
+# roamer-mcp-plugin
+
+[![Listed on mcpservers.org](https://mcpservers.org/badge.svg)](https://mcpservers.org/servers/mathismeadows/roamer-mcp-plugin)
+
+Distributable Claude Code plugin for RoamerMcp — the Roamer project registry, behavioral spec database, and engineering threads MCP server. Learn more at [roamermcp.mathismeadows.com](https://roamermcp.mathismeadows.com).
+
+Installing this plugin gives you ten workflows backed by the same tools RoamerMcp exposes over MCP. Each is a slash command, but Claude can also invoke one on its own when the conversation calls for it — you don't have to type the command yourself:
+
+- `/roamer:orient` — start-of-session briefing (project registry + open threads)
+- `/roamer:breadcrumb` — end-of-session checkpoint (registry + thread updates)
+- `/roamer:feature` — seven-step gated feature workflow
+- `/roamer:bug` — eight-step gated bug-fix workflow
+- `/roamer:spec-audit` — spec coverage audit
+- `/roamer:spec-check` — hygiene checklist
+- `/roamer:thread-scrub` — guided review and disposition of the open-thread backlog, on demand
+- `/roamer:login` — switch which identity this client is signed in as
+- `/roamer:logout` — clear a client's cached identity so it signs in fresh next time
+- `/roamer:status` — see which identities are cached and active, per client
+
+## Install
+
+```
+/plugin marketplace add mathismeadows/roamer-mcp-plugin
+/plugin install roamer@roamer
+```
+
+On first use, Claude Code will prompt you to authenticate against the hosted RoamerMcp endpoint (per-user Entra ID login via OAuth) — no manual token setup required.
+
+## Status
+
+This repo is public — install directly with the commands above. New accounts are provisioned automatically on first login, but currently need manual approval before they can use RoamerMcp's tools (a beta access gate); you'll be notified once yours is enabled.
+
+## Structure
+
+- `.claude-plugin/plugin.json` — plugin manifest
+- `.claude-plugin/marketplace.json` — self-referential marketplace entry
+- `.mcp.json` — runs `npx -y @mathismeadows/roamer-device-auth`, which authenticates against RoamerMcp's own OAuth server and bridges stdio to the hosted MCP endpoint
+- `skills/` — the workflow commands above
+
+This repo is distribution-only — it has no server code, no tests, and no relation to RoamerMcp's internal architecture beyond consuming its public MCP endpoint.
