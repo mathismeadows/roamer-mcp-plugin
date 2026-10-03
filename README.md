@@ -4,7 +4,7 @@
 
 Distributable Claude Code plugin for RoamerMcp — the Roamer project registry, behavioral spec database, and engineering threads MCP server. Learn more at [roamermcp.mathismeadows.com](https://roamermcp.mathismeadows.com).
 
-Installing this plugin gives you ten workflows backed by the same tools RoamerMcp exposes over MCP. Each is a slash command, but Claude can also invoke one on its own when the conversation calls for it — you don't have to type the command yourself:
+Installing this plugin gives you eleven workflows backed by the same tools RoamerMcp exposes over MCP. Each is a slash command, but Claude can also invoke one on its own when the conversation calls for it — you don't have to type the command yourself:
 
 - `/roamer:orient` — start-of-session briefing (project registry + open threads)
 - `/roamer:breadcrumb` — end-of-session checkpoint (registry + thread updates)
@@ -13,6 +13,7 @@ Installing this plugin gives you ten workflows backed by the same tools RoamerMc
 - `/roamer:spec-audit` — spec coverage audit
 - `/roamer:spec-check` — hygiene checklist
 - `/roamer:thread-scrub` — guided review and disposition of the open-thread backlog, on demand
+- `/roamer:release-notes` — draft Internal/External release notes for a date window, review-only
 - `/roamer:login` — switch which identity this client is signed in as
 - `/roamer:logout` — clear a client's cached identity so it signs in fresh next time
 - `/roamer:status` — see which identities are cached and active, per client
