@@ -1,8 +1,8 @@
 {
   "mcpServers": {
-    "roamer": {
-      "command": "npx",
-      "args": ["-y", "@mathismeadows/roamer-device-auth"]
+    "mcp": {
+      "type": "http",
+      "url": "https://roamer-mcp.mathismeadows.com/mcp"
     }
   }
 }

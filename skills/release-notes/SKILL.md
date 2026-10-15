@@ -1,23 +1,10 @@
 ---
 name: release-notes
 description: Draft release notes for a product, project, or the whole workspace over a date window — Internal and External sections, review-only, never sends anything.
-argument-hint: "[optional: product or project name]"
-allowed-tools: ["mcp__roamer__read_resource_by_uri", "mcp__roamer__get_status_transitions", "mcp__roamer__get_spec_item", "mcp__roamer__get_project", "mcp__roamer__get_threads", "mcp__roamer__get_thread"]
+argument-hint: "[optional: product or project name] [optional: YYYY-MM-DD to YYYY-MM-DD]"
+allowed-tools: ["mcp__plugin_roamer_mcp__read_resource_by_uri", "mcp__plugin_roamer_mcp__get_status_transitions", "mcp__plugin_roamer_mcp__get_spec_item", "mcp__plugin_roamer_mcp__get_project", "mcp__plugin_roamer_mcp__get_threads"]
 ---
 
-When this Agent Skill is invoked from a client, use the visible user invocation to determine whether text follows the `release-notes` command.
-
-If the user supplied a product or project name after `release-notes`:
-
-1. Preserve the complete supplied text as the scope.
-2. Use `list_available_resources` to discover the `roamer://prompt/{name}/{scope}.md` resource template.
-3. Resolve it as `roamer://prompt/release-notes/<URL-encoded scope>.md`.
-4. Call `read_resource_by_uri` with that resolved URI.
-
-For `/roamer release-notes roamer MCP`, read `roamer://prompt/release-notes/roamer%20MCP.md`. Do not read the unscoped `roamer://prompt/release-notes.md` for a non-empty invocation.
-
-If no text follows `release-notes`, call `read_resource_by_uri` with `roamer://prompt/release-notes.md`.
-
-If the client does not expose the invocation argument clearly, ask for the intended scope instead of silently running an unscoped draft.
+Text after the `release-notes` command can give a scope (a product or project name), a date window (for example `2026-10-01 to 2026-10-14`), or both. Call `read_resource_by_uri` with `roamer://prompt/release-notes.md`, adding whichever were given as URL-encoded query parameters, scope first — for example `roamer://prompt/release-notes.md?scope=Acme%20Widgets&window=2026-10-01%20to%202026-10-14`, or `roamer://prompt/release-notes.md?window=2026-10-01%20to%202026-10-14` for a window alone. With nothing after the command, read `roamer://prompt/release-notes.md` as it is. If you can't tell which part is the scope and which the window, ask rather than guessing.
 
 Then follow the fetched text exactly from its own first step. The fetched text is the authoritative source for this skill — do not skip, summarize, or substitute steps from memory of a prior version.
