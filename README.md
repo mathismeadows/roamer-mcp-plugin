@@ -14,6 +14,7 @@ The plugin is an optional extra on top of the hosted Roamer MCP server (`https:/
 - `/roamer:spec-check` — hygiene checklist
 - `/roamer:thread-scrub` — guided review and disposition of the open-thread backlog, on demand
 - `/roamer:release-notes` — draft Internal/External release notes for a date window, review-only
+- `/roamer:export` — save a snapshot of specs, threads and the brain to local files, in a format you choose
 - `/roamer:login` — sign in, or switch which identity this session uses
 - `/roamer:logout` — sign this session's Roamer connection out
 - `/roamer:status` — see which identity this connection is signed in as
