@@ -38,6 +38,10 @@ Version 2.0 changes how the plugin connects. 1.x started a local bridge (`npx @m
 - If a server named `roamer` is still listed — in `/mcp`, or in VS Code's MCP Servers view — remove it and reload. A leftover `roamer` server can show an error with no output.
 - Tool approvals you gave the old `roamer` server don't carry over to the new name.
 
+## Data & privacy
+
+The plugin connects only to the hosted Roamer MCP server at `https://roamer-mcp.mathismeadows.com/mcp`. It sends that server the arguments you give a workflow (for example a project name or a date window) and the Roamer content you read or write through it: projects, specs, threads, blockers and session notes. You sign in with OAuth in your browser; the plugin never sees or stores your password. The plugin runs no local code: it is only markdown skills and a server address. See the [privacy policy](https://mathismeadows.com/privacy) for how Roamer handles your data.
+
 ## Status
 
 This repo is public — install directly with the commands above. New accounts are provisioned automatically on first login, but currently need manual approval before they can use RoamerMcp's tools (a beta access gate); you'll be notified once yours is enabled.
@@ -47,6 +51,7 @@ This repo is public — install directly with the commands above. New accounts a
 - `.claude-plugin/plugin.json` — plugin manifest
 - `.claude-plugin/marketplace.json` — self-referential marketplace entry
 - `.mcp.json` — the hosted Roamer MCP server over HTTP, under the server name `mcp`
+- `icon.png` — the plugin's icon
 - `skills/` — the workflow commands above; each one reads its current instructions from the server
 
 This repo is distribution-only — it has no server code, no tests, and no relation to RoamerMcp's internal architecture beyond consuming its public MCP endpoint.

@@ -1,7 +1,9 @@
 {
   "name": "roamer",
+  "description": "The Roamer plugin: workflow commands for the Roamer MCP project registry, behavioral spec database and engineering threads.",
   "owner": {
-    "name": "Colin Ayer",
+    "name": "Mathis Meadows",
+    "email": "info@mathismeadows.com",
     "url": "https://github.com/mathismeadows"
   },
   "plugins": [
@@ -9,7 +11,8 @@
       "name": "roamer",
       "description": "Roamer workflow commands — orient, breadcrumb, feature, bug, spec-audit, spec-check, login, logout, status, thread-scrub, release-notes, export — for the Roamer project registry, behavioral spec database, and engineering threads MCP server.",
       "author": {
-        "name": "Colin Ayer",
+        "name": "Mathis Meadows",
+        "email": "info@mathismeadows.com",
         "url": "https://github.com/mathismeadows"
       },
       "source": "./"
