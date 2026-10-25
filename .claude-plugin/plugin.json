@@ -1,6 +1,7 @@
 {
   "name": "roamer",
-  "version": "2.1.1",
+  "displayName": "Roamer MCP",
+  "version": "2.1.2",
   "description": "Roamer workflow commands — orient, breadcrumb, feature, bug, spec-audit, spec-check, login, logout, status, thread-scrub, release-notes, export — for the Roamer project registry, behavioral spec database, and engineering threads MCP server.",
   "author": {
     "name": "Mathis Meadows",
