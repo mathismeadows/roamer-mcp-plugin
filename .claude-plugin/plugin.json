@@ -1,7 +1,7 @@
 {
   "name": "roamer",
   "displayName": "Roamer MCP",
-  "version": "2.1.3",
+  "version": "2.1.4",
   "description": "Roamer workflow commands — orient, breadcrumb, feature, bug, spec-audit, spec-check, login, logout, status, thread-scrub, release-notes, export — for the Roamer project registry, behavioral spec database, and engineering threads MCP server.",
   "author": {
     "name": "Mathis Meadows",
@@ -11,5 +11,9 @@
   "license": "LicenseRef-Commercial-Source-Available",
   "icon": "./icon.png",
   "privacyPolicyUrl": "https://mathismeadows.com/privacy",
-  "documentationUrl": "https://roamer-mcp.mathismeadows.com/portal/help"
+  "documentationUrl": "https://roamer-mcp.mathismeadows.com/portal/help",
+  "homepage": "https://roamermcp.mathismeadows.com",
+  "repository": "https://github.com/mathismeadows/roamer-mcp-plugin",
+  "supportUrl": "mailto:info@mathismeadows.com",
+  "termsOfServiceUrl": "https://mathismeadows.com/terms"
 }
