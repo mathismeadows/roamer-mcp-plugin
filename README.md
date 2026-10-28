@@ -30,14 +30,6 @@ The plugin connects to the hosted server over HTTP — no Node.js or local insta
 
 Keep one Roamer connection per client. If you've also added Roamer as a claude.ai connector or with `claude mcp add`, Claude Code treats a plugin server and a connector on the same URL as duplicates and ranks the plugin's first. Turn off any other Roamer server in `/mcp` so it's clear which one a session is using.
 
-### Upgrading from 1.x
-
-Version 2.0 changes how the plugin connects. 1.x started a local bridge (`npx @mathismeadows/roamer-device-auth`) under the server name `roamer`; 2.0 connects straight to the hosted server under the server name `mcp`, so its tools are named `mcp__plugin_roamer_mcp__<tool>`. After updating:
-
-- Sign in once more with `/mcp` (the bridge's cached sign-in isn't used by 2.0).
-- If a server named `roamer` is still listed — in `/mcp`, or in VS Code's MCP Servers view — remove it and reload. A leftover `roamer` server can show an error with no output.
-- Tool approvals you gave the old `roamer` server don't carry over to the new name.
-
 ## Data & privacy
 
 The plugin connects only to the hosted Roamer MCP server at `https://roamer-mcp.mathismeadows.com/mcp`. It sends that server the arguments you give a workflow (for example a project name or a date window) and the Roamer content you read or write through it: projects, specs, threads, blockers and session notes. You sign in with OAuth in your browser; the plugin never sees or stores your password. The plugin runs no local code: it is only markdown skills and a server address. See the [privacy policy](https://mathismeadows.com/privacy) for how Roamer handles your data.
