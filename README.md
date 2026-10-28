@@ -4,7 +4,7 @@
 
 Distributable Claude Code plugin for Roamer MCP — the Roamer project registry, behavioral spec database, and engineering threads MCP server. Learn more at [roamermcp.mathismeadows.com](https://roamermcp.mathismeadows.com).
 
-The plugin is an optional extra on top of the hosted Roamer MCP server (`https://roamer-mcp.mathismeadows.com/mcp`). Connecting to that server on its own already gives every tool and workflow; installing this plugin adds eleven workflows as slash commands. Each is a slash command, but Claude can also invoke one on its own when the conversation calls for it — you don't have to type the command yourself:
+The plugin is an optional extra on top of the hosted Roamer MCP server (`https://roamer-mcp.mathismeadows.com/mcp`). Connecting to that server on its own already gives every tool and workflow; installing this plugin adds the following workflows as slash commands. Each is a slash command, but Claude can also invoke one on its own when the conversation calls for it — you don't have to type the command yourself:
 
 - `/roamer:orient` — start-of-session briefing (project registry + open threads)
 - `/roamer:breadcrumb` — end-of-session checkpoint (registry + thread updates)
